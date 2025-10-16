@@ -20,6 +20,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         
         echo("<h1>Alejandro De la Huerga</h1>");
         
+        // Aqui voy a guardar el sueldo total de la semana.
         $iSueldoTotal=0;
         
         // Creamos e inicializamos el Array.
@@ -39,9 +40,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         
         echo("<h2>Sueldo ganado cada dia</h2>");
         
-        foreach ($aSueldoSemana as $key => $value) {
-            $iSueldoTotal += $value;
-            print("El ". $key . "has cobrado ". $value . "</br>");
+        foreach ($aSueldoSemana as $dia => $sueldoDiario) {
+            $iSueldoTotal += $sueldoDiario;
+            print("El ". $dia . "has cobrado ". $sueldoDiario . "</br>");
         }
         
         echo("<h2>Sueldo ganado en toda la semana</h2>");

@@ -7,6 +7,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     <head>
         <meta charset="UTF-8">
         <title>Ejercicio 17 - Alejandro De la Huerga</title>
+        
     </head>
     <body>
         <?php
@@ -20,9 +21,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
            en cada fila y las personas que lo ocupan.
         */
         
-        //  Creamos el array bidimensional vacio.
         
-        $aTeatro=[[]];
+        echo("<h1>Alejandro De la Huerga</h1>");
+        echo("<h2>foreach</h2>");
+        
+        
         
         // Rellanamos el array bidimensional con el numero de asientos y filas.
         
@@ -44,12 +47,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         // Recorremos con foreach
         
         print '<table>';
-        print '<tr><th colspan=16>foreach</th></tr>';
         foreach ($aTeatro as $aFila) {
             print("<tr>");
             printf("<td>Pasillo %d</td>", $aFila);
             foreach ($aFila as $asiento) {
                 print("<td>$asiento</td>");
+                
             }
             print("</tr>");
         }

@@ -16,7 +16,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
          * 16. Recorrer el array anterior utilizando funciones para obtener el mismo resultado.
         */
         
-        
+        echo("<h1>Alejandro De la Huerga</h1>");
         
        // Creamos e inicializamos el Array.
         $aSueldoSemana = [
@@ -36,6 +36,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             // Recorremos el array y mostramos el sueldo de cada día
             foreach ($aSueldo as $dia => $sueldo) {
                 echo "El $dia has recibido un sueldo de $sueldo €<br>";
+                
                 $iSueldoTotal += $sueldo;
             }
 
