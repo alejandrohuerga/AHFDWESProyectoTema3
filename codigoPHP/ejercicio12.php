@@ -16,145 +16,216 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
          * 12. Mostrar el contenido de las variables superglobales (utilizando print_r() y foreach()).
         */
         
-        echo("<h1>Alejandro De la Huerga</h1>");
-        
-         //Muestra del contenido de la variable $GLOBALS con print_r
-            echo "<pre>";
-            echo '<h2>Mostrar $GLOBALS con print_r</h2>';
-            print_r ($GLOBALS);
+            echo("<h1>Alejandro De la Huerga</h1>");
             
-            //Muestra del contenido de la variable $_SERVER con print_r
-            echo '<h2>Mostrar $_SERVER con print_r</h2>';
-            print_r ($_SERVER);
+            // Variable $GLOBALS[] con print_r (Utilizamos la etiqueta <pre> para que nos desglose el array hacia abajo).
             
-            //Muestra del contenido de la variable $_GET con print_r
-            echo '<h2>Mostrar $_GET con print_r</h2>';
-            print_r ($_GET);
+            echo('<h3>$GLOBALS con print_r</h3>');
+            echo("<pre>");
+            print_r($GLOBALS);
+            echo("</pre>");
             
-            //Muestra del contenido de la variable $_POST con print_r
-            echo '<h2>Mostrar $_POST con print_r</h2>';
-            print_r ($_POST);
+            /* 
+             * Variable global $_GLOBALS[] con foreach insertado en una tabla.
+             * El campo variable contiene el nombre de las variables globales que contine $GLOBALS
+             * El campo Value contiene el contenido de los arrays de cada una de las variables globales
+               que contiene $GLOBALS.
+             */
             
-            //Muestra del contenido de la variable $_FILES con print_r
-            echo '<h2>Mostrar $_FILES con print_r</h2>';
+            echo('<h3>$GLOBALS con foreach</h3>');
+            echo("<table border='1' cellpadding='5' cellspacing='0'>");
+            echo("<tr><th style=width:500px>Variable</th><th style=width:500px>Value</th></tr>");
+            foreach ($GLOBALS as $nombreVariable => $valorVariable) {
+                
+                // Mostramos el nombre de la variable global.
+                
+                echo("<td>\$$nombreVariable</td>");
+    
+                // Mostramos el contenido completo de la variable.
+                
+                echo("<td><pre>");
+                print_r($valorVariable);
+                echo("</pre></td>");
+    
+                echo("</tr>");
+            }
+            echo("</table>");
+
+            // Variable $_SERVER[] con print_r (Utilizamos la etiqueta <pre> para que nos desglose el array hacia abajo).
+            
+            echo('<h3>$_SERVER con print_r</h3>');
+            echo("<pre>");
+            print_r($_SERVER);
+            echo("</pre>");
+            
+            // Variable global $_SERVER[] con foreach insertado en una tabla
+            
+            echo('<h3>$_SERVER[] con foreach()</h3>');
+            echo("<table border='1' cellpadding='5' cellspacing='0'>");
+            echo("<tr><th style=width:500px>Variable</th><th style=width:500px>Value</th></tr>");
+            foreach($_SERVER as $clave => $valor){
+                echo("<tr><th>\$_SERVER[" . $clave . "]</th><th>$valor</th></tr>");
+            }
+            echo("</table>");
+            
+            
+            // Variable $_GET[] con print_r (Utilizamos la etiqueta <pre> para que nos desglose el array hacia abajo).
+            
+            echo('<h3>$_GET con print_r</h3>');
+            echo("<pre>");
+            
+            /* 
+             * Nos saldra vácio ya que $_GET nos muestra los parametros enviados por url.
+               y en este caso no estamos enviando nada.
+             * Si queremos comprobarlo podemos agregar al final de la url lo siguiente: 
+               "?nombre=Alejandro&edad=17".
+             */
+            
+            print_r($_GET);
+            echo("</pre>");
+            
+            // Variable global $_GET[] con foreach insertado en una tabla
+            
+            echo('<h3>$_GET[] con foreach()</h3>');
+            echo("<table border='1' cellpadding='5' cellspacing='0'>");
+            echo("<tr><th style=width:500px>Variable</th><th style=width:500px>Value</th></tr>");
+            foreach($_GET as $clave => $valor){
+                echo("<tr><th>\$_GET[" . $clave . "]</th><th>$valor</th></tr>");
+            }
+            echo("</table>");
+            
+            // Variable $_POST[] con print_r (Utilizamos la etiqueta <pre> para que nos desglose el array hacia abajo).
+            
+            echo('<h3>$_POST con print_r</h3>');
+            echo("<pre>");
+            
+            /* 
+             * Nos saldra vácio ya que $_POST solo se llena cuando enviamos datos por un formulario.
+               y en este caso no tenemos ningun formulario.
+            */
+            print_r($_POST);
+            echo("</pre>");
+            
+            // Variable global $_SERVER[] con foreach insertado en una tabla
+            
+            echo('<h3>$_POST[] con foreach()</h3>');
+            echo("<table border='1' cellpadding='5' cellspacing='0'>");
+            echo("<tr><th style=width:500px>Variable</th><th style=width:500px>Value</th></tr>");
+            foreach($_POST as $clave => $valor){
+                echo("<tr><th>\$_POST[" . $clave . "]</th><th>$valor</th></tr>");
+            }
+            echo("</table>");
+            
+            // Variable $_FILES[] con print_r (Utilizamos la etiqueta <pre> para que nos desglose el array hacia abajo).
+            
+            echo('<h3>$_FILES con print_r</h3>');
+            echo("<pre>");
+            
+            /* 
+             * Nos saldra vácio ya que $_FILES solo se llena cuando enviamos archivos 
+               al servidor por un formulario.
+             * Y en este caso no tenemos ningun formulario ni enviamos ningún archivo.
+            */
+            
             print_r($_FILES);
+            echo("</pre>");
             
-            //Muestra del contenido de la variable $_COOKIE con print_r
-            echo '<h2>Mostrar $_COOKIE con print_r</h2>';
-            print_r ($_COOKIE);
+            // Variable global $_FILES[] con foreach insertado en una tabla
             
-            //Muestra del contenido de la variable $_SESSION con print_r
-            echo '<h2>Mostrar $_SESSION con print_r</h2>';
-            print_r ($_SESSION);
-            
-            //Muestra del contenido de la variable $_REQUEST con print_r
-            echo '<h2>Mostrar $_REQUEST con print_r</h2>';
-            print_r ($_REQUEST);
-            
-            //Muestra del contenido de la variable $_ENV con print_r
-            echo '<h2>Mostrar $_ENV con print_r</h2>';
-            print_r ($_ENV);
-            
-            //Muestra del contenido de la variable $_SERVER con foreach()
-            echo '<h2>Mostrar $_SERVER con foreach()</h2>';
-            echo "<table><tr><th class='cajaizquierda'>Clave</th><th class='cajaderecha'>Valor</th></tr>";
-            foreach ($_SERVER as $key => $value) {
-                echo "<tr>";
-                echo "<td class='cajaizquierda'><strong>" . $key . "</strong></td>";
-                echo "<td class='cajaderecha'>" . $value . "</td>";
-                echo "</tr>";
+            echo('<h3>$_FILES[] con foreach()</h3>');
+            echo("<table border='1' cellpadding='5' cellspacing='0'>");
+            echo("<tr><th style=width:500px>Variable</th><th style=width:500px>Value</th></tr>");
+            foreach($_POST as $clave => $valor){
+                echo("<tr><th>\$_FILES[" . $clave . "]</th><th>$valor</th></tr>");
             }
-            echo "</table>";
-            echo "</br>";
+            echo("</table>");
             
-            // Muestra del contenido de la variable $_REQUEST con foreach()
-            echo '<h2>Mostrar $_REQUEST con foreach()</h2>';
-            echo '<table><tr><th>Clave</th><th>Valor</th></th>';
-            foreach ($_REQUEST as $key => $value) {
-                echo "<td><strong>" . $key . "</strong></td>";
-                echo "<td>" . $value . "</td>";
+            // Variable $_COOKIE[] con print_r (Utilizamos la etiqueta <pre> para que nos desglose el array hacia abajo).
+            
+            
+            echo('<h3>$_COOKIE con print_r</h3>');
+            echo("<pre>");
+            
+            /* 
+             * Nos saldra vácio ya que $_COOKIE solo se llena cuando tenemos cookies activas.
+             * Y en este caso no tenemos ninguna cookie activa.
+            */
+            
+            print_r($_COOKIE);
+            echo("</pre>");
+            
+            // Variable global $_COOKIE[] con foreach insertado en una tabla
+            
+            echo('<h3>$_COOKIE[] con foreach()</h3>');
+            echo("<table border='1' cellpadding='5' cellspacing='0'>");
+            echo("<tr><th style=width:500px>Variable</th><th style=width:500px>Value</th></tr>");
+            foreach($_COOKIE as $clave => $valor){
+                echo("<tr><th>\$_COOKIE[" . $clave . "]</th><th>$valor</th></tr>");
             }
-            echo '</table>';
+            echo("</table>");
             
-            //Muestra del contenido de la variable $_GET con foreach()
-            echo '<h2>Mostrar $_GET con foreach()</h2>';
-            echo '<table><tr><th>Clave</th><th>Valor</th></th>';
-            foreach ($_GET as $key => $value) {
-                echo "<td><strong>" . $key . "</strong></td>";
-                echo "<td>" . $value . "</td>";
+            // Variable $_SESSION[] con print_r (Utilizamos la etiqueta <pre> para que nos desglose el array hacia abajo).
+            
+            // Metemos valores de sesión al array para que no salga vácio.
+            $_SESSION['usuario'] = "Alejandro";
+            $_SESSION['edad'] = 17;
+
+
+            echo('<h3>$_SESSION con print_r</h3>');
+            echo("<pre>");
+            print_r($_SESSION);
+            echo("</pre>");
+            
+            // Variable global $_COOKIE[] con foreach insertado en una tabla
+            
+            echo('<h3>$_SESSION[] con foreach()</h3>');
+            echo("<table border='1' cellpadding='5' cellspacing='0'>");
+            echo("<tr><th style=width:500px>Variable</th><th style=width:500px>Value</th></tr>");
+            foreach($_SESSION as $clave => $valor){
+                echo("<tr><th>\$_SESSION[" . $clave . "]</th><th>$valor</th></tr>");
             }
-            echo '</table>';
-            echo "</br>";
+            echo("</table>");
             
-            //Muestra del contenido de la variable $_FILES con foreach()
-            echo '<h2>Mostrar $_FILES con foreach()</h2>';
-            echo '<table><tr><th>Clave</th><th>Valor</th></th>';
-            foreach ($_FILES as $key => $value) {
-                echo "<td><strong>" . $key . "</strong></td>";
-                echo "<td>" . $value . "</td>";
+            // Variable $_REQUEST[] con print_r (Utilizamos la etiqueta <pre> para que nos desglose el array hacia abajo).
+            
+            echo('<h3>$_REQUEST con print_r</h3>');
+            echo("<pre>");
+            /*
+             * Aparecera vacio ya que $_REQUEST es una variable superglobal que engloba tanto
+               $_GET,$_POST y $_COOKIE y estas variables estan vacias.
+             */
+            print_r($_REQUEST);
+            echo("</pre>");
+            
+            // Variable global $_REQUEST[] con foreach insertado en una tabla
+            
+            echo('<h3>$_REQUEST[] con foreach()</h3>');
+            echo("<table border='1' cellpadding='5' cellspacing='0'>");
+            echo("<tr><th style=width:500px>Variable</th><th style=width:500px>Value</th></tr>");
+            foreach($_REQUEST as $clave => $valor){
+                echo("<tr><th>\$_REQUEST[" . $clave . "]</th><th>$valor</th></tr>");
             }
-            echo '</table>';
-            echo "</br>";
+            echo("</table>");
             
-            //Muestra del contenido de la variable $_ENV con foreach()
-            echo '<h2>Mostrar $_ENV con foreach()</h2>';
-            echo '<table><tr><th>Clave</th><th>Valor</th></th>';
-            foreach ($_ENV as $key => $value) {
-                echo "<td><strong>" . $key . "</strong></td>";
-                echo "<td>" . $value . "</td>";
+            // Variable $_ENV[] con print_r (Utilizamos la etiqueta <pre> para que nos desglose el array hacia abajo).
+            
+            echo('<h3>$_ENV con print_r</h3>');
+            echo("<pre>");
+            /*
+             * Aparecera vacio ya que nuestro servidor no esta configurado para importar variables de entorno.
+             */
+            print_r($_ENV);
+            echo("</pre>");
+            
+            // Variable global $_ENV[] con foreach insertado en una tabla
+            
+            echo('<h3>$_ENV[] con foreach()</h3>');
+            echo("<table border='1' cellpadding='5' cellspacing='0'>");
+            echo("<tr><th style=width:500px>Variable</th><th style=width:500px>Value</th></tr>");
+            foreach($_ENV as $clave => $valor){
+                echo("<tr><th>\$_REQUEST[" . $clave . "]</th><th>$valor</th></tr>");
             }
-            echo '</table>';
-            echo "</br>";
-            
-            //Muestra del contenido de la variable $_POST con foreach()
-            echo '<h2>Mostrar $_POST con foreach()</h2>';
-            echo '<table><tr><th>Clave</th><th>Valor</th></th>';
-            foreach ($_POST as $key => $value) {
-                echo "<td><strong>" . $key . "</strong></td>";
-                echo "<td>" . $value . "</td>";
-            }
-            echo '</table>';
-            echo "</br>";
-            
-            
-            
-            //Muestra del contenido de la variable $_COOKIE con foreach()
-            echo '<h2>Mostrar $_COOKIE con foreach()</h2>';
-            echo '<table><tr><th>Clave</th><th>Valor</th></th>';
-            foreach ($_COOKIE as $key => $value) {
-                echo "<td><strong>" . $key . "</strong></td>";
-                echo "<td>" . $value . "</td>";
-            }
-            echo '</table>';
-            echo "</br>";
-            
-            //Muestra del contenido de la variable $_SESSION con foreach()
-            echo '<h2>Mostrar $_SESSION con foreach()</h2>';
-            echo '<table><tr><th>Clave</th><th>Valor</th></th>';
-            foreach ($_SESSION as $key => $value) {
-                echo '<tr>';
-                echo "<td><strong>$key</strong></td>";
-                echo "<td>$value</td>";
-                echo '<tr>';
-            }
-            echo '</table>';
-            echo "</br>";
-            
-            
-            
-            //Muestra del contenido de la variable $GLOBALS con foreach(), uso de dos foreach para mostrar el contenido de algunos arrays dentro del array de la variable
-            echo '<h2>Mostrar $GLOBALS con foreach()</h2>';
-            echo "<table><tr><th class='cajaizquierda'>Clave</th><th class='cajaderecha'>Valor</th></tr>";
-            foreach ($GLOBALS as $clave){
-                foreach ($clave as $segundaclave => $valor) {
-                    echo "<tr>";
-                    echo "<td class='cajaizquierda'><strong>$segundaclave</strong></td>";
-                    echo "<td class='cajaderecha'>$valor</td>";
-                    echo "</tr>";
-                }
-            }
-            echo "</table>";
-            echo "</br>";
+            echo("</table>");
         ?>
     </body>
 </html>
