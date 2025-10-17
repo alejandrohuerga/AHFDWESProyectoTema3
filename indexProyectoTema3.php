@@ -342,21 +342,29 @@
         <td>21</td>
         <td>Formulario cuestionario que envía datos a Tratamiento.php para mostrar preguntas y respuestas</td>
         <td>
-          <a href="codigoPHP/Tratamiento.php">
-            <button>Ejecutar</button>
-          </a>
-      </td>
-      <td>
-          <a href="mostrarcodigo/Tratamiento.php">
-            <button>Mostrar Codigo</button>
-          </a>
-      </td>
+            <a href="codigoPHP/ejercicio21.php">
+                <button>Ejecutar</button>
+            </a>
+        </td>
+        <td>
+            <a href="mostrarcodigo/muestraEjercicio21.php">
+                <button>Mostrar Codigo</button>
+            </a>
+        </td>
     </tr>
     <tr>
         <td>22</td>
         <td>Formulario cuestionario que muestra preguntas y respuestas en la misma página</td>
-        <td>Ejecutar</td>
-        <td>mostrar codigo</td>
+        <td>
+            <a href="codigoPHP/ejercicio22.php">
+                <button>Ejecutar</button>
+            </a>
+        </td>
+        <td>
+            <a href="mostrarcodigo/muestraEjercicio22.php">
+                <button>Mostrar Codigo</button>
+            </a>
+        </td>
     </tr>
     <tr>
         <td>23</td>

@@ -17,7 +17,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         */
         
         echo("<h1>Alejandro De la Huerga</h1>");
-        
+        echo("<h2>Ejercicio 16</h2>");
        // Creamos e inicializamos el Array.
         $aSueldoSemana = [
             "Lunes" => 20,

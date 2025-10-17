@@ -6,15 +6,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Alejandro De la Huerga</title>
     </head>
     <body>
         <?php
-            echo("<h2>Fichero ejercicio21.php</h2>");
-            highlight_file("../codigoPHP/ejercicio21.php");
-            
-            echo("<h2>Fichero Tratamiento.php</h2>");
-            highlight_file("../codigoPHP/Tratamiento.php");
+            highlight_file("../codigoPHP/ejercicio22.php");
         ?>
     </body>
 </html>
