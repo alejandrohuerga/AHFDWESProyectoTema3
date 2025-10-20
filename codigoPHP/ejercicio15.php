@@ -18,8 +18,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
            (Array asociativo con los nombres de los días de la semana).
         */
         
-        echo("<h1>Alejandro De la Huerga</h1>");
-        
         // Aqui voy a guardar el sueldo total de la semana.
         $iSueldoTotal=0;
         
@@ -35,6 +33,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             "Domingo"=>0
         ];
         
+        echo("<h1>Alejandro De la Huerga</h1>");
         
         // Recorremos el array con un foreach().
         

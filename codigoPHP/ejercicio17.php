@@ -20,6 +20,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
            en cada fila y las personas que lo ocupan.
         */
         
+        // Definir asientos y filas como constantes y hacer todos los recuadros iguales.
         
         echo("<h1>Alejandro De la Huerga</h1>");
         echo("<h2>Ejercicio 17</h2>");
@@ -28,6 +29,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         
         // Rellanamos el array bidimensional con el numero de asientos y filas.
         // Declaracion de la variable $aTeatro de 20 filas y 15 asientos por fila.
+        
         for($iFila=1;$iFila<=20;$iFila++){
             for($iColumna=1;$iColumna<=15;$iColumna++){
                 $aTeatro[$iFila][$iColumna]=null;

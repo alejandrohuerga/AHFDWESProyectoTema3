@@ -14,13 +14,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <h1>Alejandro De la Huerga</h1>
         <h2>Ejercicio 21</h2>
         <h2>Formulario registro de datos del usuario</h2>
+        
+        <!-- Documentación sobre formularios https://www.php.net/manual/en/tutorial.forms.php -->
+        
         <form name="formularioDatosUsuario" action="Tratamiento.php" method="post">
             
             <label for="nombre">Nombre: </label>
-            <input type="text" name="nombre" id="nombre" required/><br><br> 
+            <input type="text" name="nombre" id="nombre"/><br><br> 
             
-            <label for="apellido">Apellido: </label>
-            <input type="text" name="apellido" id="apellido"/><br><br>
             
             <label for="edad">Edad: </label>
             <input type="number" name="edad" id="edad"/><br><br>

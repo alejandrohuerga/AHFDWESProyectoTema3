@@ -10,12 +10,32 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     </head>
     <body>
         <?php
-            /**
-            * @author: Alejandro De la Huerga
-            * @since: 17/10/2025
-            * 23.Construir un formulario para recoger un cuestionario realizado a una persona y mostrar en la misma página las preguntas y las respuestas
-                recogidas; en el caso de que alguna respuesta esté vacía o errónea volverá a salir el formulario con el mensaje correspondiente
-            */
+        
+        /**
+        * @author: Alejandro De la Huerga
+        * @since: 17/10/2025
+        * 23.Construir un formulario para recoger un cuestionario realizado a una persona y mostrar en la misma página las preguntas y las respuestas
+             recogidas; en el caso de que alguna respuesta esté vacía o errónea volverá a salir el formulario con el mensaje correspondiente
+        */
+        
+            if (isset($_REQUEST['enviar'])) { //Código que se ejecuta cuando se envía el formulario
+                print "Su nombre es $_REQUEST[nombre]<br>";
+                print "Su edad es $_REQUEST[edad]<br/>";
+            } else { //Código que se ejecuta antes de rellenar el formulario    
+        ?>
+            <form name="formulario" action=<?php echo $_SERVER["PHP_SELF"]; ?> method="post">
+                <label for="nombre">Nombre:
+                    <input type="text" name="nombre">
+                </label><br>
+                <br/>
+                <label for="edad">Edad: </label>
+                <input type="number" name="edad" id="edad"/><br><br>
+                <br/>
+                <input type="submit" name="enviar" value="enviar">
+            </form>
+        <?php
+            }
+        ?>
         ?>
     </body>
 </html>

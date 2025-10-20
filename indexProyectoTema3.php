@@ -259,14 +259,10 @@
       <td>13</td>
       <td>Crear una función que cuente el número de visitas a la página actual desde una fecha concreta.</td>
       <td>
-          <a href="codigoPHP/ejercicio13.php">
-            <button>Ejecutar</button>
-          </a>
+          Ejecutar
       </td>
       <td>
-          <a href="mostrarcodigo/muestraEjercicio13.php">
-            <button>Mostrar Codigo</button>
-          </a>
+          Mostrar Código
       </td>
     </tr>
     <tr>
