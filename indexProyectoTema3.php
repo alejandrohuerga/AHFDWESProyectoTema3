@@ -365,8 +365,16 @@
     <tr>
         <td>23</td>
         <td>Formulario con validación que vuelve a mostrar el formulario si hay respuestas vacías o erróneas</td>
-        <td>Ejecutar</td>
-        <td>mostrar codigo</td>
+        <td>
+            <a href="codigoPHP/ejercicio23.php">
+                <button>Ejecutar</button>
+            </a>
+        </td>
+        <td>
+            <a href="mostrarcodigo/muestraEjercicio23.php">
+                <button>Mostrar Codigo</button>
+            </a>
+        </td>
     </tr>
     <tr>
         <td>24</td>
