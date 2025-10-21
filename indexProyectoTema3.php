@@ -379,8 +379,16 @@
     <tr>
         <td>24</td>
         <td>Formulario con validación que mantiene las respuestas correctas al recargar por errores</td>
-        <td>Ejecutar</td>
-        <td>mostrar codigo</td>
+        <td>
+            <a href="codigoPHP/ejercicio24.php">
+                <button>Ejecutar</button>
+            </a>
+        </td>
+        <td>
+            <a href="mostrarcodigo/muestraEjercicio24.php">
+                <button>Mostrar Codigo</button>
+            </a>
+        </td>
     </tr>
     <tr>
         <td>25</td>

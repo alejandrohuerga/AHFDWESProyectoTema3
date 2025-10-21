@@ -6,23 +6,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Ejercicio 23 - Alejandro De la Huerga</title>
-        <style>
-            .nombre{
-                background-color: yellow;
-            }
-        </style>
+        <title></title>
     </head>
     <body>
+        
         <h1>Alejandro De la Huerga</h1>
-        <h2>Ejercicio 23</h2>
+        <h2>Ejercicio 24</h2>
+        
         <?php
         
         /**
         * @author: Alejandro De la Huerga
         * @since: 21/10/2025
-        * 23.Construir un formulario para recoger un cuestionario realizado a una persona y mostrar en la misma página las preguntas y las respuestas
-             recogidas; en el caso de que alguna respuesta esté vacía o errónea volverá a salir el formulario con el mensaje correspondiente
+        * 24. Construir un formulario para recoger un cuestionario realizado a una persona y mostrar en la misma página las preguntas y las respuestas
+              recogidas; en el caso de que alguna respuesta esté vacía o errónea volverá a salir el formulario con el mensaje correspondiente, pero las
+              respuestas que habíamos tecleado correctamente aparecerán en el formulario y no tendremos que volver a teclearlas
         */
             
             require_once '../core/231018libreriaValidacion.php'; //Importación de libreria para la validación de los campos.
@@ -40,9 +38,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 foreach($aErrores as $campo => $valor){
                     if($valor !=null){ // Si ha habido algun error $entradaOK es falso.
                         $entradaOK=false;
-                        
+                    }else{
+                        $aRespuestas[$campo]=$_REQUEST[$campo]; // Guardamos el dato correcto en el array de Respuestas.
                     }
                 }
+                
+                
                 
             } else {
                 
@@ -56,11 +57,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 $aRespuestas['nombre']=$_REQUEST['nombre'];
                 $aRespuestas['edad'] = $_REQUEST['edad'];
                 
-                // Recorremos el array de respuestas con un foreach para mostrar las respuestas.
                 
-                foreach($aRespuestas as $campo => $valor){
-                    print("Su $campo es: ". $valor ."<br/>");
-                }
                 
             }else{ // Si no se ha ingresado correctamente volvemos a mostrar el formulario
         ?>
@@ -68,7 +65,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <label for="nombre">Nombre:
                 <?php
                     echo ($aErrores['nombre'] == null)
-                        ? "<input type='text' name='nombre' class='nombre' />"
+                        ? "<input type='text' name='nombre' class='nombre'/>"
                         : "<input type='text' name='nombre' />
                            <a style='color:red;'>{$aErrores['nombre']}</a>";
 
@@ -89,6 +86,5 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <?php
             }     
         ?>
-            
     </body>
 </html>
