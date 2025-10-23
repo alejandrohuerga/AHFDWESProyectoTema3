@@ -66,22 +66,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         ?>
             <form name="formulario" action=<?php echo $_SERVER["PHP_SELF"]; ?> method="post">
                 <label for="nombre">Nombre:
-                <?php
-                    echo ($aErrores['nombre'] == null)
-                        ? "<input type='text' name='nombre' class='nombre' />"
-                        : "<input type='text' name='nombre' />
-                           <a style='color:red;'>{$aErrores['nombre']}</a>";
-
-                ?>
+                    <input style="background-color:lightgoldenrodyellow;" type="text" name="nombre" value='<?php echo $_REQUEST['nombre'] ?? ''; ?>'/>
+                    <a style=color:red;> <?php echo $aErrores['nombre']?>  </a>
                 </label>
                 <br/>
                 <label for="edad">Edad:
-                <?php
-                    echo($aErrores['edad']==null)
-                        ? "<input type='text' name='edad' class='edad'/>"
-                        : " <input  type='text' name='edad' />
-                            <a style='color:red;'>{$aErrores['edad']}</a>"
-                ?>
+                    <input type="text" name="edad" value='<?php echo $_REQUEST['edad'] ?? ''; ?>'/>
+                    <a style=color:red;> <?php echo $aErrores['edad']?>  </a>
                 </label>
                 <br/>
                 <input type="submit" name="enviar" value="enviar">
