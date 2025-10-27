@@ -17,15 +17,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         
         /**
         * @author: Alejandro De la Huerga
-        * @since: 21/10/2025
+        * @since: 24/10/2025
         * 24. Construir un formulario para recoger un cuestionario realizado a una persona y mostrar en la misma página las preguntas y las respuestas
               recogidas; en el caso de que alguna respuesta esté vacía o errónea volverá a salir el formulario con el mensaje correspondiente, pero las
               respuestas que habíamos tecleado correctamente aparecerán en el formulario y no tendremos que volver a teclearlas
         */
             
             require_once '../core/231018libreriaValidacion.php'; //Importación de libreria para la validación de los campos.
-            $aErrores = ['nombre' => null, 'edad' => null]; // Array que almacena los errores.
-            $aRespuestas=['nombre' => null, 'edad' => null]; // Array que almacena las respuestas.
+            
+            // Array que almacena los errores.
+            $aErrores = [
+                'nombre' => '',
+                'edad' => ''
+            ]; 
+            
+            // Array que almacena las respuestas.
+            $aRespuestas=[
+                'nombre' => '', 
+                'edad' => ''
+            ]; 
+            
             $entradaOK=true; // variable booleana que indica si hay o no errores al enviar el formulario.
             
             if (isset($_REQUEST['enviar'])) { //Código que se ejecuta cuando se envía el formulario.
@@ -69,13 +80,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             <form name="formulario" action=<?php echo $_SERVER["PHP_SELF"]; ?> method="post">
                 <label for="nombre">Nombre:
                     <input style="background-color:lightgoldenrodyellow;" type="text" name="nombre"  
-                    value='<?php echo ($aErrores['nombre'] == null) ? ($_REQUEST['nombre'] ?? '') : ''; ?>'/>
+                           value='<?php echo (empty($aErrores['nombre'])) ? ($_REQUEST['nombre'] ?? '') : ''; ?>'/>
                     <a style=color:red;> <?php echo $aErrores['nombre']?>  </a>
                 </label>
                 <br/>
                 <label for="edad">Edad:
                     <input type="text" name="edad"  
-                    value='<?php echo ($aErrores['edad'] == null) ? ($_REQUEST['edad'] ?? '') : ''; ?>'/>
+                           value='<?php echo (empty($aErrores['edad'])) ? ($_REQUEST['edad'] ?? '') : ''; ?>'/>
                     <a style=color:red;> <?php echo $aErrores['edad']?>  </a> 
                 </label>
                 <br/>

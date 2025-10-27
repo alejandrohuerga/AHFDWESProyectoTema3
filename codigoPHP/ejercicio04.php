@@ -27,8 +27,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             echo $ofecha->format("d/m/Y - H:i")."<br>";
             echo $ofecha->format("d \d\\e F \d\\e Y  - H:i")."<br>";
 
-            echo "<p>No puedo poner el mes en portugúes de momento (ver código)</p>"
-            
+            echo "<p>No puedo poner el mes en portugúes de momento (ver código)</p>";
+            date_default_timezone_set('Europe/Madrid');
          
         ?>
     </body>
