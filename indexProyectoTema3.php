@@ -406,6 +406,23 @@
         <td>Ejecutar</td>
         <td>mostrar codigo</td>
     </tr>
+    <tr>
+        <td>27</td>
+        <td>
+            Modificar la plantilla para el desarrollo de un formulario que recoja y genere el siguiente informe con los datos que se muestran a
+            continuación:
+        </td>
+        <td>
+            <a href="codigoPHP/ejercicio27.php">
+                <button>Ejecutar</button>
+            </a>
+        </td>
+        <td>
+            <a href="mostrarcodigo/muestraEjercicio27.php">
+                <button>Mostrar Codigo</button>
+            </a>
+        </td>
+    </tr>
   </tbody>
 </table>
         </div>
