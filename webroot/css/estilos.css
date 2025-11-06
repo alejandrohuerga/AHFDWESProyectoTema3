@@ -1,0 +1,161 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 6 nov 2025, 0:55:13
+    Author     : aleja
+*/
+
+/* ==============================
+   ESTILOS GENERALES
+============================== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f7fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==============================
+   HEADER Y TITULOS
+============================== */
+header {
+    background-color: #4a6cf7;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin: 15px 0;
+    font-size: 1.2rem;
+}
+
+/* ==============================
+   FORMULARIO
+============================== */
+form {
+    background-color: white;
+    width: 90%;
+    max-width: 850px;
+    margin: 10px auto;
+    padding: 20px 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    font-size: 0.9rem;
+}
+
+/* Distribución compacta: label a la izquierda, input a la derecha */
+label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    gap: 10px;
+    font-weight: 500;
+}
+
+/* Inputs, selects, etc. más pequeños */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="number"],
+input[type="file"],
+select {
+    flex: 1;
+    padding: 6px 8px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    min-width: 180px;
+}
+
+/* Color de fondo para obligatorios */
+input[style*="lightgoldenrodyellow"] {
+    background-color: #fffbe6 !important;
+}
+
+/* Focus */
+input:focus,
+select:focus {
+    border-color: #4a6cf7;
+    box-shadow: 0 0 4px rgba(74,108,247,0.3);
+    outline: none;
+}
+
+/* ==============================
+   CHECKBOX Y RADIO
+============================== */
+.radio-group,
+.checkbox-group {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.radio-group label,
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: normal;
+}
+
+/* ==============================
+   MENSAJES DE ERROR
+============================== */
+a[style*="color:red"] {
+    margin-left: 10px;
+    font-size: 0.8rem;
+    color: #e63946 !important;
+    font-weight: 500;
+}
+
+/* ==============================
+   BOTÓN DE ENVÍO
+============================== */
+input[type="submit"] {
+    background-color: #4a6cf7;
+    color: white;
+    font-weight: 600;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 15px auto 0;
+    font-size: 0.9rem;
+}
+
+input[type="submit"]:hover {
+    background-color: #3b56d4;
+}
+
+/* ==============================
+   RESULTADOS
+============================== */
+.resultados {
+    background-color: #eafbea;
+    color: #2d6a4f;
+    border: 1px solid #b7e4c7;
+    padding: 15px;
+    width: 70%;
+    margin: 15px auto;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}

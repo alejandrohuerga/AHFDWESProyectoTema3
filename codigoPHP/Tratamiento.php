@@ -17,7 +17,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
               las preguntas y las respuestas recogidas.
         */
             print("<h1>Alejandro De la Huerga</h1>");
-            print("<h2>Resultados del cuestionario para {$_REQUEST['nombre']} {$_REQUEST['apellido']} </h2>");
+            print("<h2>Resultados del cuestionario para {$_REQUEST['nombre']} {$_REQUEST['edad']} </h2>");
             
             // Mostramos las respuestas del formulario
             

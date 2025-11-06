@@ -258,19 +258,15 @@
     <tr>
       <td>13</td>
       <td>Crear una función que cuente el número de visitas a la página actual desde una fecha concreta.</td>
-      <td>
-          Ejecutar
-      </td>
-      <td>
-          Mostrar Código
-      </td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>14</td>
       <td>Comprobar las librerías que estás utilizando en tu entorno de desarrollo y explotación. Crear tu propia librería de funciones y estudiar la
           forma de usarla en el entorno de desarrollo y en el de explotación</td>
-      <td>Ejecutar</td>
-      <td>mostrar codigo</td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>15</td>
@@ -319,20 +315,20 @@
     <tr>
       <td>18</td>
       <td>Recorrer el array anterior utilizando funciones para obtener el mismo resultado.</td>
-      <td>Ejecutar</td>
-      <td>mostrar codigo</td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
         <td>19</td>
         <td>Construir una librería de funciones de validación de campos de formularios (LibreríaValidacionFormularios.php)</td>
-        <td>Ejecutar</td>
-        <td>mostrar codigo</td>
+        <td></td>
+        <td></td>
     </tr>
     <tr>
         <td>20</td>
         <td>Convertir la LibreriaValidacionFormularios.php en una clase ValidacionFormularios.php</td>
-        <td>Ejecutar</td>
-        <td>mostrar codigo</td>
+        <td></td>
+        <td></td>
     </tr>
     <tr>
         <td>21</td>
@@ -393,8 +389,16 @@
     <tr>
         <td>25</td>
         <td>Trabajar en PlantillaFormulario.php, plantilla para hacer formularios rápidamente</td>
-        <td>Ejecutar</td>
-        <td>mostrar codigo</td>
+        <td>
+            <a href="codigoPHP/ejercicio25.php">
+                <button>Ejecutar</button>
+            </a>
+        </td>
+        <td>
+            <a href="mostrarcodigo/muestraEjercicio25.php">
+                <button>Mostrar Codigo</button>
+            </a>
+        </td>
     </tr>
     <tr>
         <td>26</td>
