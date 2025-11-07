@@ -118,7 +118,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             .radios {
                 display: flex;
                 flex-direction: column;
-                gap: 10px;
+                gap: 11px;
             }
             
             .radios input{
