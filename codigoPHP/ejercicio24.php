@@ -14,13 +14,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
               padding: 0;
               font-family: "Playfair Display", serif;
             }
+            
+            header{
+                background-color: lightgray;
+                flex-direction: column;
+                display: flex;
+                width: 100%;
+                height: 140px;
+                justify-content: center;
+                margin-bottom: 120px;
+            }
 
             body {
               background: radial-gradient(circle, rgba(250,197,238,1) 0%, rgba(228,177,250,1) 100%);
               display: flex;
               flex-direction: column;
               align-items: center;
-              justify-content: center;
+              /*justify-content: center;*/
               min-height: 100vh;
             }
 
@@ -36,13 +46,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
               padding: 30px 40px;
               border-radius: 15px;
               box-shadow: 0 0 15px rgba(0,0,0,0.1);
-              width: 350px;
+              width: 600px;
               margin-top: 20px;
               text-align: left;
             }
 
             label {
-              display: block;
+             display: block;
               margin-bottom: 20px;
               color: #222;
               font-weight: bold;
@@ -121,10 +131,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         </style>
     </head>
     <body>
-        
-        <h1>Alejandro De la Huerga</h1>
-        <h2>Ejercicio 24</h2>
-        
+        <header>
+            <h1>Alejandro De la Huerga</h1>
+            <h2>Ejercicio 24</h2>
+        </header>
         <?php
         
         /**
@@ -137,48 +147,54 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             
             require_once '../core/231018libreriaValidacion.php'; //Importación de libreria para la validación de los campos.
             
-            // Array que almacena los errores.
-            $aErrores = [
-                'nombre' => '',
-                'edad' => ''
-            ]; 
+            // Array que almacena los errores
             
-            // Array que almacena las respuestas.
-            $aRespuestas=[
-                'nombre' => '', 
-                'edad' => ''
-            ]; 
+                $aErrores=[
+                    'T02_CodDepartamento' =>'',
+                    'T02_DescDepartamento' =>'',
+                    'T02_VolumenDeNegocio'=>'',  
+                ];
             
-            $entradaOK=true; // variable booleana que indica si hay o no errores al enviar el formulario.
+            // Array que almacena las respuestas , inicializadas a null
             
-            if (isset($_REQUEST['enviar'])) { //Código que se ejecuta cuando se envía el formulario.
-            
-                // Validamos los datos para cada campo del formulario.
+                $aRespuestas=[
+                    'T02_CodDepartamento' =>null,
+                    'T02_DescDepartamento' =>null,
+                    'T02_VolumenDeNegocio'=>null,   
+                ];
                 
-                $aErrores['nombre']= validacionFormularios::comprobarAlfabetico($_REQUEST['nombre'],100,0,1,);
-                $aErrores['edad']= validacionFormularios::comprobarEntero($_REQUEST['edad']);
+                define('OBLIGATORIO',1); // Constante booleana que define que un campo es obligatorio.
+                $entradaOK=true; //Variable booleana que valida que la entrada esta bien , inicializada a true.
+            
+                if(isset($_REQUEST['enviar'])){ // código que se ejecuta cuando se envia el formulario.
+                    
+                    $aErrores['T02_CodDepartamento']= validacionFormularios::comprobarAlfabetico($_REQUEST['T02_CodDepartamento'], 3, 3, OBLIGATORIO);
+                    $aErrores['T02_DescDepartamento']= validacionFormularios::comprobarAlfabetico($_REQUEST['T02_DescDepartamento'], 255, 1, OBLIGATORIO);
+                    $aErrores['T02_VolumenDeNegocio']= validacionFormularios::comprobarFloat($_REQUEST['T02_VolumenDeNegocio'], PHP_FLOAT_MAX, 0, OBLIGATORIO);
+                    
+                    
+                // Si en el array de errores encuentra un error la variable entradaOK pasa a un valor false.
                 
-                foreach($aErrores as $campo => $valor){
-                    if($valor !=null){ // Si ha habido algun error $entradaOK es falso.
-                        $entradaOK=false;
-                    }else{
-                        $aRespuestas[$campo]=$_REQUEST[$campo]; // Guardamos el dato correcto en el array de Respuestas.
-                    }
+                    foreach ($aErrores as $campo => $valor) {
+                        if($valor!=null){ // Si ha habido algun error $entradaOK es falso.
+                            $entradaOK=false;
+                        }else{
+                            $aRespuestas[$campo]=$_REQUEST[$campo]; // Guardamos el dato correcto en el array de Respuestas.
+                        }
+                    }   
+                    
+                }else{
+                    $entradaOK=false; // Si el formulario no se ha rellenado nunca.
                 }
                 
-                
-                
-            } else {
-                
-                $entradaOK=false; // Si el formulario no se ha rellenado nunca.
-            }
             // Tratamiento del formulario.
             if($entradaOK){ // Si los datos han sido ingresados correctamente.
             
                 //Rellenamos el array de respuestas con los valores ingresados.
                 
-                $aRespuestas['nombre']=$_REQUEST['nombre'];
-                $aRespuestas['edad'] = $_REQUEST['edad'];
+                $aRespuestas['T02_CodDepartamento']=$_REQUEST['T02_CodDepartamento'];
+                $aRespuestas['T02_DescDepartamento']=$_REQUEST['T02_DescDepartamento'];
+                $aRespuestas['T02_VolumenDeNegocio']=$_REQUEST['T02_VolumenDeNegocio'];
                 
                 // Recorremos el array de respuestas con un foreach para mostrar las respuestas.
                 echo ("<div class=resultados>");
@@ -189,24 +205,39 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 
             }else{ // Si no se ha ingresado correctamente volvemos a mostrar el formulario
         ?>
+            <section class="formulario">
+            <h2>Inserta un nuevo departamento</h2>
             <form name="formulario" action=<?php echo $_SERVER["PHP_SELF"]; ?> method="post">
-                <label for="nombre">Nombre:
-                    <input style="background-color:lightgoldenrodyellow;" type="text" name="nombre"  
-                           value='<?php echo (empty($aErrores['nombre'])) ? ($_REQUEST['nombre'] ?? '') : ''; ?>'/>
-                    <a style=color:red;> <?php echo $aErrores['nombre']?>  </a>
+                <label for="T02_CodDepartamento">T02_CodDepartamento:
+                    <input style="background-color:lightgoldenrodyellow; text-transform: uppercase;" type="text" name="T02_CodDepartamento"  
+                           value='<?php echo (empty($aErrores['T02_CodDepartamento'])) ? ($_REQUEST['T02_CodDepartamento'] ?? '') : ''; ?>'/>
+                    <a style=color:red;> <?php echo $aErrores['T02_CodDepartamento'] ?>  </a>
                 </label>
                 <br/>
-                <label for="edad">Edad:
-                    <input type="text" name="edad"  
-                           value='<?php echo (empty($aErrores['edad'])) ? ($_REQUEST['edad'] ?? '') : ''; ?>'/>
-                    <a style=color:red;> <?php echo $aErrores['edad']?>  </a> 
+                <label for="T02_DescDepartamento">T02_DescDepartamento:
+                    <input style="background-color:lightgoldenrodyellow;" type="text" name="T02_DescDepartamento"  
+                           value='<?php echo (empty($aErrores['T02_DescDepartamento'])) ? ($_REQUEST['T02_DescDepartamento'] ?? '') : ''; ?>'/>
+                    <a style=color:red;> <?php echo $aErrores['T02_DescDepartamento'] ?>  </a>
                 </label>
                 <br/>
-                <input type="submit" name="enviar" value="enviar">
-            </form>
-        <?php
-        
+                <label for="T02_FechaCreacionDepartamento">T02_FechaCreacionDepartamento:
+                    <input style="background-color:lightgrey;" name="T02_FechaCreacionDepartamento" id="T02_FechaCreacionDepartamento" 
+                    type="date" value="<?php echo date('Y-m-d'); ?>" disabled>
+                </label>
+                    <br/>
+                <label for="T02_VolumenDeNegocio">T02_VolumenDeNegocio:
+                    <input style="background-color:lightgoldenrodyellow;" type="text" name="T02_VolumenDeNegocio"  
+                            value='<?php echo (empty($aErrores['T02_VolumenDeNegocio'])) ? ($_REQUEST['T02_VolumenDeNegocio'] ?? '') : ''; ?>'/>
+                    <a style=color:red;> <?php echo $aErrores['T02_VolumenDeNegocio'] ?></a>
+                </label>
+                <br/>
+                <div class="botones">
+                    <input type="submit" name="enviar" value="enviar">
+                </div>
+             </form>
+        <?php        
             }
         ?>
+        </section>
     </body>
 </html>
