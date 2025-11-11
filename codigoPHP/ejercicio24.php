@@ -15,6 +15,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
               font-family: "Playfair Display", serif;
             }
             
+            html, body {
+                height: 100%;
+            }
+            
             header{
                 background-color: lightgray;
                 flex-direction: column;
@@ -22,7 +26,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 width: 100%;
                 height: 140px;
                 justify-content: center;
-                margin-bottom: 120px;
+                margin-bottom: 80px;
             }
 
             body {
@@ -30,7 +34,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
               display: flex;
               flex-direction: column;
               align-items: center;
-              /*justify-content: center;*/
+              justify-content: space-between;
               min-height: 100vh;
             }
 
@@ -42,91 +46,118 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
 
             /* ---------- FORMULARIO ---------- */
             form {
-              background: #fff;
-              padding: 30px 40px;
-              border-radius: 15px;
-              box-shadow: 0 0 15px rgba(0,0,0,0.1);
-              width: 600px;
-              margin-top: 20px;
-              text-align: left;
+                background: #fff;
+                padding: 30px 40px;
+                border-radius: 15px;
+                box-shadow: 0 0 15px rgba(0,0,0,0.1);
+                width: 700px;
+                margin-top: 20px;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
             }
 
+            /* Cada grupo de label + input en una fila */
             label {
-             display: block;
-              margin-bottom: 20px;
-              color: #222;
-              font-weight: bold;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 15px;
+                font-weight: bold;
+                color: #222;
             }
 
+            /* Inputs del formulario */
             input[type="text"] {
-              width: 100%;
-              padding: 10px;
-              border: 2px solid #ccc;
-              border-radius: 8px;
-              margin-top: 5px;
-              font-size: 1rem;
-              transition: all 0.2s ease;
+                flex: 1;
+                padding: 8px 10px;
+                border: 2px solid #ccc;
+                border-radius: 8px;
+                font-size: 1rem;
+                transition: all 0.2s ease;
             }
 
-            input[type="text"]:focus {
-              border-color: #b56eea;
-              outline: none;
-              background-color: #f8e8ff;
-            }
-
-            /* Campo amarillo (obligatorio) */
-            input[style*="lightgoldenrodyellow"] {
-              background-color: lightgoldenrodyellow !important;
+            /* Inputs de solo lectura (fecha) */
+            input[type="date"][disabled] {
+                background-color: #f0f0f0;
+                color: #666;
+                border: 2px solid #ccc;
+                flex: 1;
             }
 
             /* Mensajes de error */
             a[style*="color:red"] {
-              display: block;
-              margin-top: 5px;
-              font-size: 0.9rem;
+                font-size: 0.85rem;
+                color: red !important;
+                margin-left: 10px;
             }
 
-            /* Botón de envío */
+            /* Campo amarillo (obligatorio) */
+            input[style*="lightgoldenrodyellow"] {
+                background-color: lightgoldenrodyellow !important;
+            }
+
+            /* Botón de envío centrado */
+            .botones {
+                display: flex;
+                justify-content: center;
+                margin-top: 10px;
+            }
+
             input[type="submit"] {
-              background-color: #b56eea;
-              color: white;
-              font-weight: bold;
-              border: none;
-              border-radius: 8px;
-              padding: 10px 15px;
-              cursor: pointer;
-              transition: background 0.2s ease;
-              width: 100%;
+                background-color: #b56eea;
+                color: white;
+                font-weight: bold;
+                border: none;
+                border-radius: 8px;
+                padding: 10px 20px;
+                cursor: pointer;
+                transition: background 0.2s ease;
+                width: auto;
             }
 
             input[type="submit"]:hover {
-              background-color: #8d47d6;
+                background-color: #8d47d6;
             }
 
             /* ---------- RESULTADOS ---------- */
             .resultados {
-              background: #fff;
-              padding: 25px 35px;
-              border-radius: 15px;
-              box-shadow: 0 0 10px rgba(0,0,0,0.1);
-              width: 400px;
-              text-align: center;
-              margin-top: 30px;
-              color: #333;
+                background: #fff;
+                padding: 25px 35px;
+                border-radius: 15px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                width: 400px;
+                text-align: center;
+               /* margin-top: 20px;*/
+                color: #333;
             }
 
             .resultados p {
-              font-size: 1.1rem;
-              margin: 10px 0;
+                font-size: 1.1rem;
+                margin: 10px 0;
             }
 
             .resultados span {
-              color: #8d47d6;
-              
-              font-weight: bold;
+                color: #8d47d6;
+                font-weight: bold;
             }
 
-
+            footer{
+                background-color: lightgray;
+                width: 100%;
+                height: 120px;
+                margin-top: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+            }
+            
+            footer img{
+                width: 50px;
+                height: 50px;
+            }
 
         </style>
     </head>
@@ -196,8 +227,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 $aRespuestas['T02_DescDepartamento']=$_REQUEST['T02_DescDepartamento'];
                 $aRespuestas['T02_VolumenDeNegocio']=$_REQUEST['T02_VolumenDeNegocio'];
                 
+                echo("<h2>Resultados de la encuenta</h2>");
                 // Recorremos el array de respuestas con un foreach para mostrar las respuestas.
                 echo ("<div class=resultados>");
+                
                     foreach($aRespuestas as $campo => $valor){
                         print("Su $campo es: ". $valor ."<br/>");
                     }
@@ -240,4 +273,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         ?>
         </section>
     </body>
+    <footer>
+        <a href="../indexProyectoTema3.php">Alejandro De la Huerga Fernández</a>
+        <a href="https://github.com/alejandrohuerga/AHFDWESProyectoTema3.git">
+            <img src="../doc/images/github-logo.png"> 
+        </a>
+    </footer>
 </html>
