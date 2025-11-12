@@ -226,7 +226,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <a style=color:red;> <?php echo $aErrores['nombre']?>  </a>
                 </label>
                 <br/>
-                <label for="fechaNacimiento">fechaNacimiento
+                <label for="fechaNacimiento">Fecha de Nacimiento:
                     <input type="text" name="fechaNacimiento" value='<?php echo $_REQUEST['fechaNacimiento'] ?? ''; ?>'/>
                     <a style=color:red;> <?php echo $aErrores['fechaNacimiento']?>  </a>
                 </label>
