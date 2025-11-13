@@ -216,7 +216,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 
                 $aErrores['nombreApellidosOb']= validacionFormularios::comprobarAlfabetico($_REQUEST['nombreApellidosOb'], MAX, MIN, OBLIGATORIO);
                 $aErrores['fechaNacimientoOb']= validacionFormularios::validarFecha($_REQUEST['fechaNacimientoOb'], '01/01/2025', '01/10/1900',OBLIGATORIO);
-                $aErrores['cursoEnteroOb']= validacionFormularios::comprobarEntero($_REQUEST['cursoEnteroOb'], 10, 1, OBLIGATORIO);
+                $aErrores['cursoEnteroOb']= validacionFormularios::comprobarEntero($_REQUEST['cursoEnteroOb'], 10, 0, OBLIGATORIO);
                 $aErrores['listaVacacionesOb'] = validacionFormularios::comprobarAlfabetico($_REQUEST['listaVacacionesOb'], 100, 1, OBLIGATORIO);
                 $aErrores['descripcionAnimoOb']= validacionFormularios::comprobarAlfabetico($_REQUEST['descripcionAnimoOb'], MAX, MIN, OBLIGATORIO);
                 // Si en el array de errores encuentra un error la variable entradaOK pasa a un valor false.
@@ -255,9 +255,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 $mesEsp = $meses[$mes];
                 
                 
+                
                 // Calculamos la edad , restando la fecha actual a la ingresada con el método diff.
                 
-                $fechaNacimiento = DateTime::createFromFormat('d/m/Y', $aRespuestas['fechaNacimientoOb']);
+                $fechaNacimiento = DateTime::createFromFormat('Y-m-d', $aRespuestas['fechaNacimientoOb']);
                 
                 if ($fechaNacimiento) {
                     $edad = $fechaNacimiento->diff($fechaActual)->y;
@@ -265,16 +266,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     $edad = "desconocida";
                 }
                 
-                // Mostrar texto con el formato dado en el documento.
                 
-                echo "<div class='resultados'>";
-                echo "Hoy ($diaSemanaEsp, $dia de $mesEsp) a las $hora.<br>";
-                echo "D. <strong>{$aRespuestas['nombreApellidosOb']}</strong>, nacido hace <strong>$edad</strong> años, se siente <strong>{$aRespuestas['radioAnimoOb']}</strong>.<br>";
-                echo "Valora su curso actual con <strong>{$aRespuestas['cursoEnteroOb']}</strong> sobre 10.<br>";
-                echo "Estas navidades las dedicará a <strong>{$aRespuestas['listaVacacionesOb']}</strong>.<br>";
-                echo "Y, además, opina que:<br>";
-                echo nl2br("<em>{$aRespuestas['descripcionAnimoOb']}</em>");
-                echo "</div>";
                 
             }else{
                 $entradaOK=false; // Si el formulario no se ha rellenado nunca.
@@ -299,6 +291,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         print("Su $campo es: ". $valor ."<br/>");
                     }
                 echo("</div>");
+                
+                // Mostrar texto con el formato dado en el documento.
+                
+                echo "<div class='resultados'>";
+                echo "Hoy ($diaSemanaEsp, $dia de $mesEsp) a las $hora.<br>";
+                echo "D. <strong>{$aRespuestas['nombreApellidosOb']}</strong>, nacido hace <strong>$edad</strong> años, se siente <strong>{$aRespuestas['radioAnimoOb']}</strong>.<br>";
+                echo "Valora su curso actual con <strong>{$aRespuestas['cursoEnteroOb']}</strong> sobre 10.<br>";
+                echo "Estas navidades las dedicará a <strong>{$aRespuestas['listaVacacionesOb']}</strong>.<br>";
+                echo "Y, además, opina que:<br>";
+                echo nl2br("<em>{$aRespuestas['descripcionAnimoOb']}</em>");
+                echo "</div>";
+                
             }else{
                  // Si no se ha ingresado correctamente volvemos a mostrar el formulario.
         ?>
@@ -312,7 +316,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <br/>
                 
                 <label for="fechaNacimientoOb">Fecha de nacimiento:
-                    <input style="background-color:lightgoldenrodyellow;" type="text" name="fechaNacimientoOb"  
+                    <input style="background-color:lightgoldenrodyellow;" type="date" name="fechaNacimientoOb"  
                            value='<?php echo (empty($aErrores['fechaNacimientoOb'])) ? ($_REQUEST['fechaNacimientoOb'] ?? '') : ''; ?>'/>
                     <a style=color:red;> <?php echo $aErrores['fechaNacimientoOb']?>  </a>
                 </label>
@@ -328,7 +332,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         <label for="muyBien">MUY BIEN</label>
                     </div>
                     <div class="radios">
-                        <input type="radio" id="muyMal" name="radioAnimoOb" value="muyMal"
+                        <input type="radio" id="muyMal" name="radioAnimoOb" value="muy mal"
                                 <?php if (isset($_REQUEST['radioAnimoOb']) && $_REQUEST['radioAnimoOb'] === 'muyMal') echo 'checked'; ?>>
                         <input type="radio" id="mal" name="radioAnimoOb" value="mal"
                                 <?php if (isset($_REQUEST['radioAnimoOb']) && $_REQUEST['radioAnimoOb'] === 'mal') echo 'checked'; ?>>
@@ -336,7 +340,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                 <?php if (isset($_REQUEST['radioAnimoOb']) && $_REQUEST['radioAnimoOb'] === 'regular') echo 'checked'; ?>>
                         <input type="radio" id="bien" name="radioAnimoOb" value="bien"
                                 <?php if (isset($_REQUEST['radioAnimoOb']) && $_REQUEST['radioAnimoOb'] === 'bien') echo 'checked'; ?>>
-                        <input type="radio" id="muyBien" name="radioAnimoOb" value="muyBien"
+                        <input type="radio" id="muyBien" name="radioAnimoOb" value="muy bien"
                                 <?php if (isset($_REQUEST['radioAnimoOb']) && $_REQUEST['radioAnimoOb'] === 'muyBien') echo 'checked'; ?>>
                     </div>
                     <br/>
@@ -351,11 +355,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 
                 <label for="listaVacacionesOb">¿Como se presentan las vacaciones de navidad?</label><br/>
                 <select name="listaVacacionesOb" id="listaVacacionesOb">
-                    <option value="Ni idea">Ni idea</option>
-                    <option value="Con la familia">Con la familia</option>
-                    <option value="De fiesta">De fiesta</option>
-                    <option value="Trabajando">Trabajando</option>
-                    <option value="Estudiando DWES">Estudiando DWES</option>
+                    <option value="ni idea">Ni idea</option>
+                    <option value="con la familia">Con la familia</option>
+                    <option value="de fiesta">De fiesta</option>
+                    <option value="trabajando">Trabajando</option>
+                    <option value="estudiando DWES">Estudiando DWES</option>
                 </select><br/>
                 
                 <label for="descripcionAnimoOb">Describe brevemente tu estado de ánimo:
