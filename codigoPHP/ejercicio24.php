@@ -241,24 +241,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             <section class="formulario">
             <h2>Inserta un nuevo departamento</h2>
             <form name="formulario" action=<?php echo $_SERVER["PHP_SELF"]; ?> method="post">
-                <label for="T02_CodDepartamento">T02_CodDepartamento:
+                <label for="T02_CodDepartamento">Código Departamento:
                     <input style="background-color:lightgoldenrodyellow; text-transform: uppercase;" type="text" name="T02_CodDepartamento"  
                            value='<?php echo (empty($aErrores['T02_CodDepartamento'])) ? ($_REQUEST['T02_CodDepartamento'] ?? '') : ''; ?>'/>
                     <a style=color:red;> <?php echo $aErrores['T02_CodDepartamento'] ?>  </a>
                 </label>
                 <br/>
-                <label for="T02_DescDepartamento">T02_DescDepartamento:
+                <label for="T02_DescDepartamento">Descripción:
                     <input style="background-color:lightgoldenrodyellow;" type="text" name="T02_DescDepartamento"  
                            value='<?php echo (empty($aErrores['T02_DescDepartamento'])) ? ($_REQUEST['T02_DescDepartamento'] ?? '') : ''; ?>'/>
                     <a style=color:red;> <?php echo $aErrores['T02_DescDepartamento'] ?>  </a>
                 </label>
                 <br/>
-                <label for="T02_FechaCreacionDepartamento">T02_FechaCreacionDepartamento:
+                <label for="T02_FechaCreacionDepartamento">Fecha Alta:
                     <input style="background-color:lightgrey;" name="T02_FechaCreacionDepartamento" id="T02_FechaCreacionDepartamento" 
                     type="date" value="<?php echo date('Y-m-d'); ?>" disabled>
                 </label>
                     <br/>
-                <label for="T02_VolumenDeNegocio">T02_VolumenDeNegocio:
+                <label for="T02_VolumenDeNegocio">Volumen de Negocio:
                     <input style="background-color:lightgoldenrodyellow;" type="text" name="T02_VolumenDeNegocio"  
                             value='<?php echo (empty($aErrores['T02_VolumenDeNegocio'])) ? ($_REQUEST['T02_VolumenDeNegocio'] ?? '') : ''; ?>'/>
                     <a style=color:red;> <?php echo $aErrores['T02_VolumenDeNegocio'] ?></a>
