@@ -175,7 +175,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
               recogidas; en el caso de que alguna respuesta esté vacía o errónea volverá a salir el formulario con el mensaje correspondiente, pero las
               respuestas que habíamos tecleado correctamente aparecerán en el formulario y no tendremos que volver a teclearlas
         */
-            
+            $oFechaCreacion=new DateTime(); // Objeto DateTime que almacena la fecha de creación del departamento.
             require_once '../core/231018libreriaValidacion.php'; //Importación de libreria para la validación de los campos.
             
             // Array que almacena los errores
@@ -255,7 +255,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 <br/>
                 <label for="T02_FechaCreacionDepartamento">Fecha Alta:
                     <input style="background-color:lightgrey;" name="T02_FechaCreacionDepartamento" id="T02_FechaCreacionDepartamento" 
-                    type="date" value="<?php echo date('Y-m-d'); ?>" disabled>
+                    type="date" value="<?php echo $oFechaCreacion->format('Y-m-d') ?>" disabled>
                 </label>
                     <br/>
                 <label for="T02_VolumenDeNegocio">Volumen de Negocio:
